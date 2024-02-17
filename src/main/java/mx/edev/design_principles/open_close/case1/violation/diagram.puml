@@ -1,0 +1,9 @@
+@startuml
+class PaymentProcessor {
+    - type: String
+    --
+    + PaymentProcessor(type: String)
+    + getType(): String
+    + processPayment(): void
+}
+@enduml

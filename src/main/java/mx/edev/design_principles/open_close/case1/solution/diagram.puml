@@ -1,0 +1,30 @@
+@startuml
+interface PaymentMethod {
+    + processPayment(): void
+}
+
+class CreditCardPayment {
+    + processPayment(): void
+}
+
+class PayPalPayment {
+    + processPayment(): void
+}
+
+class BankTransferPayment {
+    + processPayment(): void
+}
+
+class PaymentProcessor {
+    - paymentMethod: PaymentMethod
+    --
+    + PaymentProcessor(paymentMethod: PaymentMethod)
+    + processPayment(): void
+}
+
+PaymentProcessor *-- PaymentMethod
+CreditCardPayment .right.|> PaymentMethod
+PaymentMethod <|.down. PayPalPayment
+BankTransferPayment .left.|> PaymentMethod
+
+@enduml

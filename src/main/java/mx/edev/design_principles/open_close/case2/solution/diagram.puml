@@ -1,0 +1,36 @@
+@startuml
+
+interface DiscountStrategy {
+    + applyDiscount(price: double): double
+}
+
+class LaptopDiscountStrategy {
+    + applyDiscount(price: double): double
+}
+
+class SmartphoneDiscountStrategy {
+    + applyDiscount(price: double): double
+}
+
+class DefaultDiscountStrategy {
+    + applyDiscount(price: double): double
+}
+
+class Product {
+    - name: String
+    - price: double
+    - discountStrategy: DiscountStrategy
+
+    + Product(name: String, price: double)
+    + Product(name: String, price: double, discountStrategy: DiscountStrategy)
+    + getName(): String
+    + getPrice(): double
+    + calculateDiscountedPrice(): double
+}
+
+Product o-- DiscountStrategy
+LaptopDiscountStrategy .left.|> DiscountStrategy
+SmartphoneDiscountStrategy .up.|> DiscountStrategy
+DefaultDiscountStrategy .right.|> DiscountStrategy
+
+@enduml
