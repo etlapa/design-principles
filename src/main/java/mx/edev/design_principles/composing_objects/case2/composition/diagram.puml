@@ -1,0 +1,22 @@
+@startuml
+
+interface Vehicle {
+  start():void
+  stop():void
+}
+
+class Car implements Vehicle {
+  + start():void
+  + stop():void
+  + drive():void
+  + park():void
+}
+
+class Motorcycle implements Vehicle {
+  + start():void
+  + stop():void
+  + ride():void
+  + park():void
+}
+
+@enduml

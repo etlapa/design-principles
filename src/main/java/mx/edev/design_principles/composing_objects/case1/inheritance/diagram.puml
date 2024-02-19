@@ -1,0 +1,13 @@
+@startuml
+
+class MediaPlayer {
+    + play(): void
+}
+
+class MusicPlayer {
+    + playMusic(): void
+}
+
+MusicPlayer -up-|> MediaPlayer: is-a
+
+@enduml

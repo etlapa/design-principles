@@ -1,0 +1,18 @@
+@startuml
+
+class Vehicle {
+  + start(): void
+  + stop(): void
+}
+
+class Car extends Vehicle {
+  + drive(): void
+  + park(): void
+}
+
+class Motorcycle extends Vehicle {
+  + ride(): void
+  + park(): void
+}
+
+@enduml

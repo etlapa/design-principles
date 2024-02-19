@@ -1,0 +1,15 @@
+@startuml
+
+class MediaPlayer {
+    + play(): void
+}
+
+class MusicPlayer {
+    - mediaPlayer: MediaPlayer
+    + MusicPlayer()
+    + playMusic(): void
+}
+
+MusicPlayer -up-> MediaPlayer: has a
+
+@enduml
