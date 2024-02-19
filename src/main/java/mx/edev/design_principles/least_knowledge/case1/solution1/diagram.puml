@@ -1,0 +1,29 @@
+@startuml
+
+class Customer {
+  - name: String;
+  - bankAccount: BankAccount
+  - address: Address
+  + payBill(amount: double): void
+}
+
+class BankAccount {
+  + payBill(amount: double): void
+  - withdraw(amount: double): void
+}
+note top of BankAccount
+    Business logic here
+end note
+
+class Address {
+  + receiveStatement(): void
+  - sendStatement(): void
+}
+note top of Address
+    Business logic here
+end note
+
+Customer -- BankAccount: delegates
+Customer -- Address: delegates
+
+@enduml

@@ -1,0 +1,26 @@
+@startuml
+
+class Customer {
+  - name: String;
+  - bankAccount: BankAccount
+  - address: Address
+  + payBill(amount: double): void
+}
+note right of Customer
+    Delegation is recommended
+    instead of performing the
+    business logic here
+end note
+
+class BankAccount {
+  + withdraw(amount: double): void
+}
+
+class Address {
+  + sendStatement(): void
+}
+
+Customer -- BankAccount: uses
+Customer -- Address: uses
+
+@enduml

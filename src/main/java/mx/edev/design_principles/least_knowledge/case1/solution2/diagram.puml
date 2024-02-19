@@ -1,0 +1,46 @@
+@startuml
+
+class Customer {
+  - name: String
+  - bankAccount: BankAccount
+  - paymentService: PaymentService
+  - address: Address
+  - customerService: CustomerService
+  + payBill(double amount): void
+}
+
+class BankAccount {
+  + withdraw(double amount): void
+}
+note bottom of BankAccount
+    BankAccount could be
+    retrieved by another
+    service
+end note
+
+class Address {
+  + sendStatement(): void
+}
+note bottom of Address
+    Address could be
+    retrieved by another
+    service
+end note
+
+class PaymentService {
+  + payBill(Customer customer,
+  BankAccount account, double amount): void
+}
+
+class CustomerService {
+  + sendStatement(Customer customer, Address address): void
+}
+
+Customer -left- BankAccount: retrieve
+Customer -right- Address: retrieve
+Customer -up- PaymentService: delegates
+Customer -up- CustomerService: delegates
+PaymentService -- BankAccount: uses
+CustomerService -- Address: uses
+
+@enduml
