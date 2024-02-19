@@ -1,0 +1,17 @@
+@startuml
+class ReportGenerator {
+  +generateReport(String data): String
+}
+class ReportSaver {
+  +saveReportToFile(String report): void
+}
+class ReportSender {
+  +sendReportByEmail(String report): void
+}
+class Main {
+  +main(String[] args): void
+}
+Main --> ReportGenerator
+Main --> ReportSaver
+Main --> ReportSender
+@enduml

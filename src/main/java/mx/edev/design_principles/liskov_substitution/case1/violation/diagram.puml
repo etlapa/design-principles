@@ -1,0 +1,25 @@
+@startuml
+
+class Shape {
+  # height: double
+  # width: double
+  # Shape(width: double, height: double)
+  + getHeight(): double
+  + getWidth(): double
+  + getArea(): double
+}
+
+class Rectangle extends Shape{
+    + Rectangle(width: double, height: double)
+}
+note right of Rectangle
+    Liskov violation.
+    Square is not a rectangle:
+    Rectangle rectangle = new Square(side)
+end note
+
+class Square extends Rectangle{
+    + Square(side: double)
+}
+
+@enduml

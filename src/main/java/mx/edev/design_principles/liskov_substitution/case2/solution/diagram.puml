@@ -1,0 +1,22 @@
+@startuml
+class Animal {
+  + walk()
+}
+
+class LightweightAnimal extends Animal {
+  + jump()
+}
+
+class Dog extends LightweightAnimal {
+}
+
+class Elephant extends Animal {
+}
+
+class Circus {
+  + jumpRing(LightweightAnimal animal)
+}
+
+Circus -left- LightweightAnimal: uses
+
+@enduml

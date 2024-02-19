@@ -1,0 +1,24 @@
+@startuml
+class Employee {
+  - String name
+  - double salary
+  + Employee(String name, double salary)
+  + getName(): String
+  + setName(String name): void
+  + getSalary(): double
+  + setSalary(double salary): void
+  + saveEmployeeToFile(FileSaver fileSaver): void
+  + calculateSalaryIncrement(SalaryCalculator calculator): double
+}
+
+class FileSaver {
+  + saveToFile(String name, double salary): void
+}
+
+class SalaryCalculator {
+  + calculateIncrement(double salary): double
+}
+
+Employee -- FileSaver: uses
+Employee -- SalaryCalculator: uses
+@enduml
