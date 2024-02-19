@@ -1,45 +1,20 @@
-package mx.edev.design_principles.interface_segregation.case2.violation;
-
-import java.util.Arrays;
-import java.util.List;
+package mx.edev.design_principles.interface_segregation.case2.solution;
 
 public class Main {
   public static void main(String[] args) {
-    List<AgileActivities> roles =
-        Arrays.asList(new ProductOwner(), new ScrumMaster(), new Developer());
-    roles.forEach(
-        role -> {
-          System.out.println("********* " + role.getClass().getSimpleName() + " *********");
-          try {
-            role.refineBacklog();
-          } catch (Exception e) {
-            System.out.println("-- refineBacklog exception for : " + e.getMessage());
-          }
-          try {
-            role.communicateStakeholder();
-          } catch (Exception e) {
-            System.out.println("-- communicateStakeholder exception for : " + e.getMessage());
-          }
-          try {
-            role.facilitateScrumEvent();
-          } catch (Exception e) {
-            System.out.println("-- facilitateScrumEvent exception for : " + e.getMessage());
-          }
-          try {
-            role.removeImpediment();
-          } catch (Exception e) {
-            System.out.println("-- removeImpediment exception for : " + e.getMessage());
-          }
-          try {
-            role.implementUserStory();
-          } catch (Exception e) {
-            System.out.println("-- implementUserStory exception for : " + e.getMessage());
-          }
-          try {
-            role.deploySolution();
-          } catch (Exception e) {
-            System.out.println("-- deploySolution exception for : " + e.getMessage());
-          }
-        });
+    ProductOwner productOwner = new ProductOwner();
+    System.out.println("********* " + productOwner.getClass().getSimpleName() + " *********");
+    productOwner.refineBacklog();
+    productOwner.communicateStakeholder();
+
+    ScrumMaster scrumMaster = new ScrumMaster();
+    System.out.println("********* " + scrumMaster.getClass().getSimpleName() + " *********");
+    scrumMaster.facilitateScrumEvent();
+    scrumMaster.removeImpediment();
+
+    Developer developer = new Developer();
+    System.out.println("********* " + developer.getClass().getSimpleName() + " *********");
+    developer.implementUserStory();
+    developer.deploySolution();
   }
 }

@@ -1,13 +1,35 @@
 package mx.edev.design_principles.interface_segregation.case2.violation;
 
-public class Manager implements AgileActivities {
-    @Override
-    public void work() {
-        System.out.println("Manager is managing.");
-    }
+public class ProductOwner implements AgileActivities {
 
-    @Override
-    public void manage() {
-        System.out.println("Manager is also managing.");
-    }
+  @Override
+  public void refineBacklog() {
+    System.out.println("Prioritize and refine items in backlog");
+  }
+
+  @Override
+  public void communicateStakeholder() {
+    System.out.println(
+        "Gather requirements, provide feedback, align product and stakeholder expectations");
+  }
+
+  @Override
+  public void facilitateScrumEvent() {
+    throw new UnsupportedOperationException("Invalid activity for Product Owner");
+  }
+
+  @Override
+  public void removeImpediment() {
+    throw new UnsupportedOperationException("Invalid activity for Product Owner");
+  }
+
+  @Override
+  public void implementUserStory() {
+    throw new UnsupportedOperationException("Invalid activity for Product Owner");
+  }
+
+  @Override
+  public void deploySolution() {
+    throw new UnsupportedOperationException("Invalid activity for Product Owner");
+  }
 }
