@@ -1,13 +1,34 @@
-package mx.edev.design_principles.interface_segregation.case1.violation;
+package mx.edev.design_principles.interface_segregation.case2.violation;
 
-public class Developer implements Worker {
-    @Override
-    public void work() {
-        System.out.println("Developer is coding.");
-    }
+public class Developer implements AgileActivities {
 
-    @Override
-    public void manage() {
-        throw new UnsupportedOperationException("Developer cannot manage.");
-    }
+  @Override
+  public void refineBacklog() {
+    throw new UnsupportedOperationException("Invalid activity for Developer");
+  }
+
+  @Override
+  public void communicateStakeholder() {
+    throw new UnsupportedOperationException("Invalid activity for Developer");
+  }
+
+  @Override
+  public void facilitateScrumEvent() {
+    throw new UnsupportedOperationException("Invalid activity for Developer");
+  }
+
+  @Override
+  public void removeImpediment() {
+    throw new UnsupportedOperationException("Invalid activity for Developer");
+  }
+
+  @Override
+  public void implementUserStory() {
+    System.out.println("Implement solution for user story");
+  }
+
+  @Override
+  public void deploySolution() {
+    System.out.println("Deploy solution");
+  }
 }

@@ -1,37 +1,31 @@
 @startuml
 
-interface AgileActivities {
+interface ProductOwnerActivities {
   +refineBacklog()
   +communicateStakeholder()
+}
+
+interface ScrumMasterActivities {
   +facilitateScrumEvent()
   +removeImpediment()
+}
+
+interface DeveloperActivities {
   +implementUserStory()
   +deploySolution()
 }
 
-class Developer implements AgileActivities{
+class ProductOwner implements ProductOwnerActivities{
   +refineBacklog()
   +communicateStakeholder()
-  +facilitateScrumEvent()
-  +removeImpediment()
-  +implementUserStory()
-  +deploySolution()
 }
 
-class ProductOwner implements AgileActivities{
-  +refineBacklog()
-  +communicateStakeholder()
+class ScrumMaster implements ScrumMasterActivities{
   +facilitateScrumEvent()
   +removeImpediment()
-  +implementUserStory()
-  +deploySolution()
 }
 
-class ScrumMaster implements AgileActivities{
-  +refineBacklog()
-  +communicateStakeholder()
-  +facilitateScrumEvent()
-  +removeImpediment()
+class Developer implements DeveloperActivities{
   +implementUserStory()
   +deploySolution()
 }

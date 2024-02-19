@@ -1,27 +1,25 @@
 @startuml
-'https://plantuml.com/class-diagram
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+interface OrderProcessor {
+  + ship(): void
+  + bill(): void
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+class OnlineOrder {
+  + ship(): void
+  + bill(): void
 }
+
+class InStoreOrder implements OrderProcessor {
+  + ship(): void
+  + bill(): void
+}
+note left of InStoreOrder
+    ship() is not
+    applicable
+    in store
+end note
+
+OnlineOrder .right.|> OrderProcessor
 
 @enduml

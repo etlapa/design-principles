@@ -1,16 +1,6 @@
-package mx.edev.design_principles.interface_segregation.case2.violation;
+package mx.edev.design_principles.interface_segregation.case2.solution;
 
-public class ScrumMaster implements AgileActivities {
-  @Override
-  public void refineBacklog() {
-    throw new UnsupportedOperationException("Invalid activity for Scrum master");
-  }
-
-  @Override
-  public void communicateStakeholder() {
-    throw new UnsupportedOperationException("Invalid activity for Scrum master");
-  }
-
+public class ScrumMaster implements ScrumMasterActivitites {
   @Override
   public void facilitateScrumEvent() {
     System.out.println(
@@ -20,15 +10,5 @@ public class ScrumMaster implements AgileActivities {
   @Override
   public void removeImpediment() {
     System.out.println("Address conflicts, resolve dependencies, escalate issues");
-  }
-
-  @Override
-  public void implementUserStory() {
-    throw new UnsupportedOperationException("Invalid activity for Scrum master");
-  }
-
-  @Override
-  public void deploySolution() {
-    throw new UnsupportedOperationException("Invalid activity for Scrum master");
   }
 }
