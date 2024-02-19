@@ -1,0 +1,25 @@
+@startuml
+
+abstract class Shape {
+  # height: double
+  # width: double
+  # Shape(width: double, height: double)
+  + getHeight(): double
+  + getWidth(): double
+  + abstract getArea(): double
+}
+
+class Rectangle extends Shape{
+    + Rectangle(width: double, height: double)
+}
+note right of Rectangle
+    Liskov validation:
+    Square can't be a Rectangle
+end note
+
+
+class Square extends Shape{
+    + Square(side: double)
+}
+
+@enduml

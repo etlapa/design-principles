@@ -1,0 +1,33 @@
+@startuml
+
+class Employee {
+  - fullname: String
+  - hoursWorked: int
+  - extraHours: int
+  - isFulltime: boolean
+  + Employee(fullname: String,
+  hoursWorked: int, extraHours: int, isFulltime: boolean)
+  + getFullname(): String
+  + getHoursWorked(): int
+  + getExtraHours(): int
+  + isFulltime(): boolean
+  + calculateSalary(): double
+}
+
+class EmployeeFulltime extends Employee {
+  + EmployeeFulltime(fullname: String,
+  hoursWorked: int, extraHours: int)
+}
+
+class EmployeeContrator extends Employee {
+  + EmployeeContrator(fullname: String,
+  hoursWorked: int)
+}
+note right of Employee
+    ExtraHours is not needed
+    for contractors and
+    calculateSalary depends
+    on subclasses
+end note
+
+@enduml

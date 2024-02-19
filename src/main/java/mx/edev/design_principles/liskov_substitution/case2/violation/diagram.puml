@@ -1,0 +1,24 @@
+@startuml
+class Animal {
+  + walk()
+  + jump()
+}
+
+class Circus {
+  + jumpHoop(Animal animal)
+}
+
+class Elephant {
+  + jump()
+}
+note right of Elephant
+    Liskov Principle broken.
+    jump() shouldn't exist for Elephant
+    (throwing exceptions or
+    blank method are bad practices)
+end note
+
+Animal <|-- Elephant
+Circus -left- Animal: uses
+
+@enduml
