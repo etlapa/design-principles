@@ -1,0 +1,25 @@
+@startuml
+
+class App {
+  - fileLogger: FileLogger
+  - databaseLogger: DatabaseLogger
+  + logToFile(message: String)
+  + logToDatabase(message: String)
+}
+note right of App
+    Tight Coupling:
+    Use of concrete instantiation
+end note
+
+class DatabaseLogger {
+  + log(message: String): void
+}
+
+class FileLogger {
+  + log(message: String): void
+}
+
+App -- DatabaseLogger: uses
+App -- FileLogger: uses
+
+@enduml

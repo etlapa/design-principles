@@ -1,0 +1,31 @@
+@startuml
+
+interface Logger {
+  log(message: String): void
+}
+
+class App {
+  - logger: Logger
+  App(logger: Logger)
+  + setLogger(logger: Logger): void
+  + log(message: String): void
+}
+note right of App
+    Loose coupling:
+    Interaction through abstraction
+    instead of concrete implementation
+    Promotes flexibility and
+    easier maintenance
+end note
+
+class DatabaseLogger implements Logger {
+  + log(message: String): void
+}
+
+class FileLogger implements Logger {
+  + log(message: String): void
+}
+
+App -- Logger: uses
+
+@enduml

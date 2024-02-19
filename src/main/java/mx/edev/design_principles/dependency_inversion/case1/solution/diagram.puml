@@ -1,0 +1,23 @@
+@startuml
+
+interface PaymentGateway {
+  processPayment(amount: double): void
+}
+
+class PaymentProcessor {
+  - PaymentGateway paymentGateway;
+  + PaymentProcessor(paymentGateway: PaymentGateway)
+  + processPayment(double amount): void
+}
+
+class MasterCardPaymentGateway implements PaymentGateway {
+  + processPayment(amount: double): void
+}
+
+class PayPalPaymentGateway implements PaymentGateway {
+  + processPayment(amount: double): void
+}
+
+PaymentProcessor -- PaymentGateway: uses
+
+@enduml

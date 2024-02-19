@@ -1,0 +1,30 @@
+@startuml
+
+enum PaymentType {
+  PAYPAL,
+  MASTER_CARD
+}
+
+class PaymentProcessor {
+  - paymentType: PaymentType
+  + PaymentProcessor(paymentType: PaymentType)
+  + processPayment(amount: double): void
+}
+note left of PaymentProcessor
+    Unnecessary Enum
+    to create concrete
+    xPaymentGateway instance
+end note
+
+class MasterCardPaymentGateway {
+  + processPayment(double amount): void
+}
+
+class PayPalPaymentGateway {
+  + processPayment(amount: double): void
+}
+
+PaymentProcessor -- MasterCardPaymentGateway: uses
+PaymentProcessor -- PayPalPaymentGateway: uses
+
+@enduml
