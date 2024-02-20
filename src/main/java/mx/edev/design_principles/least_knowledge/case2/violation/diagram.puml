@@ -1,0 +1,33 @@
+@startuml
+
+class Professor {
+  - name: String
+  - courses: List<Course>
+  + Professor(name: String)
+  + announceExam(courseName: String, announcement: String): void
+  - initialize(): List<Course>
+}
+note right of Professor
+    Professor is reaching
+    Student through Course
+end note
+
+class Course {
+  - name:String
+  - List<Student> students;
+  + Course(name:String, students:List<Student>)
+  + getName():String
+  + getStudents():List<Student>
+}
+
+class Student {
+  - name:String
+  + Student(name:String)
+  + receiveAnnouncement(announcement:String):void
+}
+
+Professor *-- Course
+Professor -- Student: uses
+Course o-- Student
+
+@enduml

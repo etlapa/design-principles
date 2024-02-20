@@ -1,0 +1,28 @@
+@startuml
+
+class  Professor {
+- String name
+- List<Course> courses
+- List<Course> initialize()
++ void announceExam(String,String)
+}
+class  Course {
+- String name
+- List<Student> students
++ List<Student> getStudents()
++ String getName()
+}
+class  Student {
+- String name
++ void receiveAnnouncement(String)
+}
+class  Notifier {
++ void notifyStudents(Course,String)
+}
+
+Professor *-right- Course
+Professor --> Notifier
+Course o-right- Student
+Notifier --> Student
+
+@enduml
